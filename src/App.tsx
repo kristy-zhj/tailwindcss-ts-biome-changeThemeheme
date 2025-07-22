@@ -1,10 +1,9 @@
+import ReactLogo from "@assets/react.svg"
 import { Button, Modal, Spin } from "antd"
 import csn from "classnames"
 import html2canvas from "html2canvas"
 import { useAtom } from "jotai"
 import { useRef, useState } from "react"
-import viteLogo from "/vite.svg"
-import reactLogo from "./assets/react.svg"
 import { ThemeModeAtom } from "./main"
 import "./index.css"
 
@@ -55,8 +54,7 @@ function App() {
           </Button>
         </div>
         <div className="flex justify-center items-center">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-          <img src={reactLogo} className="logo react" alt="React logo" />
+          <ReactLogo />
         </div>
         <h1>Vite + React</h1>
         <div className="card">
