@@ -1,0 +1,21 @@
+@layer theme, base, antd, components, utilities;
+@import "tailwindcss";
+
+@theme {
+  --bg-primary: #722ed1;
+}
+html {
+  &.dark {
+    @apply bg-black text-[#f1f1f1];
+  }
+  &.light {
+    @apply bg-white text-black;
+  }
+}
+@base {
+}
+@layer components {
+  .darkMode {
+    @apply bg-black text-[#f1f1f1];
+  }
+}
