@@ -7,17 +7,51 @@
 
 @layer base {
   html {
-    &.dark {
-      @apply bg-black text-[#f1f1f1];
+    @apply text-base;
+  }
+  .dark {
+    @apply bg-black text-[#f1f1f1];
+  }
+  .light {
+    @apply bg-white text-black;
+  }
+  ::-webkit-scrollbar {
+    @apply p-[2px] w-[7px] h-[7px];
+  }
+  ::-webkit-scrollbar-track {
+    @apply bg-[transparent] rounded;
+    box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.3);
+  }
+  ::-webkit-scrollbar-thumb {
+    border-radius: 4px;
+    background: rgba(255, 255, 255, 0.3);
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.3);
+  }
+  ::-webkit-scrollbar-corner {
+    background: transparent;
+  }
+  @media print {
+    ::-webkit-scrollbar {
+      @apply p-[2px] w-[7px] h-[7px];
     }
-    &.light {
-      @apply bg-white text-black;
+    ::-webkit-scrollbar-track {
+      @apply bg-[transparent] rounded;
+      box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.3);
+    }
+    ::-webkit-scrollbar-thumb {
+      border-radius: 4px;
+      background: rgba(255, 255, 255, 0.3);
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: rgba(255, 255, 255, 0.3);
+    }
+    ::-webkit-scrollbar-corner {
+      background: transparent;
     }
   }
 }
 
 @layer components {
-  .darkMode {
-    @apply bg-black text-[#f1f1f1];
-  }
 }
