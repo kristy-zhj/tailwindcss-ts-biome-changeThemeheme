@@ -1,14 +1,13 @@
 import { StyleProvider } from "@ant-design/cssinjs"
 import "@ant-design/v5-patch-for-react-19"
 import { Button, ConfigProvider, theme } from "antd"
-import { Provider, useAtom } from "jotai"
-import { atomWithStorage } from "jotai/utils"
+import { atom, Provider, useAtom } from "jotai"
 import { type FC, StrictMode } from "react"
 import { createRoot } from "react-dom/client"
 import { ErrorBoundary, type FallbackProps } from "react-error-boundary"
 import App from "./App.tsx"
 
-export const ThemeModeAtom = atomWithStorage<"light" | "dark">("theme", "light")
+export const ThemeModeAtom = atom<"light" | "dark">("light")
 
 const ThemeSwitch: FC = () => {
   const [themeMode, _setThemeMode] = useAtom(ThemeModeAtom)
