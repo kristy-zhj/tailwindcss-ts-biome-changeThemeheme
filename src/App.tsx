@@ -70,7 +70,7 @@ function App() {
           <Button type="default" className="h-9 leading-9" onClick={onScreenshot}>
             截图
           </Button>
-          <div className="bg-black/30 w-20 h-20 overflow-y-auto">
+          <div className="w-20 h-20 overflow-y-auto">
             <div>1</div>
             <div>1</div>
             <div>1</div>
