@@ -1,10 +1,11 @@
 import type { ReactElement } from "react"
 import { Redirect, Route, Router, Switch } from "wouter"
 import { AuthRoute } from "./auth-route/auth-route"
-import "./index.css"
 import { Header } from "./features/header"
-import { Home } from "./page/home"
-import { Settings } from "./page/settings"
+import "./index.css"
+import { Home } from "./pages/home"
+import { PreviewReport } from "./pages/report"
+import { Settings } from "./pages/settings"
 
 interface RouteItem {
   title: string
@@ -19,6 +20,11 @@ function App() {
       title: "首页",
       url: "/",
       component: () => <Home />,
+    },
+    {
+      title: "查看报告",
+      url: "/report",
+      component: () => <PreviewReport />,
     },
     {
       title: "系统设置",

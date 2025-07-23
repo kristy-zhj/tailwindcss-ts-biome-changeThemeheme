@@ -6,6 +6,6 @@ export const UserLoginAtom = atomWithStorage<UserLogin>("login", {
   UserId: "222222",
   UserName: "admin",
   UserRole: "admin",
-  Claims: D.makeEmpty(),
+  Claims: [],
   IsInitPassword: true,
 })
