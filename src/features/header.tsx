@@ -3,6 +3,7 @@ import { Button } from "antd"
 import { useAtom } from "jotai"
 import { useLocation } from "wouter"
 import { ThemeModeAtom } from "@/main"
+import { ParamsReport } from "./params-report"
 
 export const Header = () => {
   const [themeMode, setThemeMode] = useAtom(ThemeModeAtom)
@@ -33,18 +34,19 @@ export const Header = () => {
       </Button>
       <Button
         onClick={() => {
-          setLocation("/report")
-        }}
-      >
-        报告
-      </Button>
-      <Button
-        onClick={() => {
           setLocation("/settings/user-list")
         }}
       >
         系统设置
       </Button>
+      <Button
+        onClick={() => {
+          setLocation("/report")
+        }}
+      >
+        报告
+      </Button>
+      <ParamsReport />
     </div>
   )
 }
