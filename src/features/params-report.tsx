@@ -15,6 +15,7 @@ export type DataType = AbnormalRegionSchemaType & {
 export const ParamsReport = () => {
   const [loading, setLoading] = useState(false)
   const contentRef = useRef<HTMLDivElement>(null)
+  const [messageApi, contextHolder] = message.useMessage()
 
   const list: DataType[] = [
     {
@@ -270,7 +271,7 @@ export const ParamsReport = () => {
     if (!dom) return
     dom.scrollTop = 0
     setLoading(true)
-    message.loading({
+    messageApi.loading({
       key: "print",
       content: "加载中...",
       duration: 0,
@@ -313,7 +314,7 @@ export const ParamsReport = () => {
           width: newContainer.scrollWidth,
           height: newContainer.scrollHeight,
           useCORS: true,
-          scale: 1,
+          scale: 2,
         })
           .then(canvas => {
             const pdf = new jsPDF("p", "pt", "a4")
@@ -369,7 +370,7 @@ export const ParamsReport = () => {
               )
               .then(() => {
                 setLoading(false)
-                message.destroy("print")
+                messageApi.destroy("print")
               })
               .catch(() => {
                 setLoading(false)
@@ -401,6 +402,7 @@ export const ParamsReport = () => {
       >
         下载全部
       </Button>
+      {contextHolder}
       {loading && (
         <div className="top-[100vh] left-0 -z-10 fixed opacity-0">
           {/* <div className="invisible top-0 left-0 z-10 fixed"> */}
