@@ -1,10 +1,11 @@
 import { StyleProvider } from "@ant-design/cssinjs"
 import "@ant-design/v5-patch-for-react-19"
-import { ConfigProvider, theme } from "antd"
+import { Button, ConfigProvider, theme } from "antd"
 import { Provider, useAtom } from "jotai"
 import { atomWithStorage } from "jotai/utils"
 import { type FC, StrictMode } from "react"
 import { createRoot } from "react-dom/client"
+import { ErrorBoundary, type FallbackProps } from "react-error-boundary"
 import App from "./App.tsx"
 
 export const ThemeModeAtom = atomWithStorage<"light" | "dark">("theme", "light")
@@ -32,12 +33,26 @@ const ThemeSwitch: FC = () => {
   )
 }
 
+function ErrorFallback({ error, resetErrorBoundary }: FallbackProps) {
+  return (
+    <div role="alert" className="relative px-2 py-4 w-full h-full text-white">
+      <h1>程序发生严重错误，记录该错误反馈给售后</h1>
+      <div className="my-4 w-full overflow-wrap wrap-break-word whitespace-pre-wrap">
+        {error.message}
+      </div>
+      <pre className="overflow-wrap wrap-break-word whitespace-pre-wrap">{error.stack}</pre>
+      <Button onClick={resetErrorBoundary}>请重试</Button>
+    </div>
+  )
+}
 createRoot(document.getElementById("root")!).render(
-  <StrictMode>
-    <Provider>
-      <StyleProvider layer>
-        <ThemeSwitch />
-      </StyleProvider>
-    </Provider>
-  </StrictMode>,
+  <ErrorBoundary fallbackRender={ErrorFallback}>
+    <StrictMode>
+      <Provider>
+        <StyleProvider layer>
+          <ThemeSwitch />
+        </StyleProvider>
+      </Provider>
+    </StrictMode>
+  </ErrorBoundary>,
 )
