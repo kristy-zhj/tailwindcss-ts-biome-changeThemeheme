@@ -177,7 +177,7 @@ export const PreviewReport: FC<{}> = () => {
           file={pdfUrl}
           loading={
             <div
-              className={csn("flex h-full w-[calc(100vw_240px)] items-center justify-center")}
+              className={csn("flex h-full      w-[calc(100vw_240px)] items-center justify-center")}
             ></div>
           }
           onLoadSuccess={onDocumentLoadSuccess}

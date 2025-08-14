@@ -19,6 +19,7 @@
     "antd": "^5.26.5",
     "classnames": "^2.5.1",
     "echarts": "^5.6.0",
+    "effect": "^3.17.7",
     "html2canvas-pro": "^1.5.11",
     "jotai": "^2.12.5",
     "jspdf": "^3.0.1",

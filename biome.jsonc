@@ -41,7 +41,10 @@
     }
   },
   "javascript": {
-    "globals": ["$", "_"],
+    "globals": [
+      "$",
+      "_"
+    ],
     "formatter": {
       "arrowParentheses": "asNeeded",
       "bracketSameLine": false,

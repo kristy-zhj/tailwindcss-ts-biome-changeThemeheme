@@ -3,6 +3,7 @@ import { Redirect, Route, Router, Switch } from "wouter"
 import { AuthRoute } from "./auth-route/auth-route"
 import { Header } from "./features/header"
 import "./index.css"
+import { EffectTS } from "./pages/effect-ts"
 import { Home } from "./pages/home"
 import { PreviewReport } from "./pages/report"
 import { Settings } from "./pages/settings"
@@ -25,6 +26,11 @@ function App() {
       title: "查看报告",
       url: "/report",
       component: () => <PreviewReport />,
+    },
+    {
+      title: "effect-ts",
+      url: "/effect",
+      component: () => <EffectTS />,
     },
     {
       title: "系统设置",

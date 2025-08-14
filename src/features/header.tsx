@@ -46,6 +46,13 @@ export const Header = () => {
       >
         报告
       </Button>
+      <Button
+        onClick={() => {
+          setLocation("/effect")
+        }}
+      >
+        Effect Ts
+      </Button>
       <ParamsReport />
     </div>
   )
