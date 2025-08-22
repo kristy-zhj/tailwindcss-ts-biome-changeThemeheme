@@ -27,7 +27,9 @@ const ThemeSwitch: FC = () => {
   }
   return (
     <ConfigProvider theme={themeConfig}>
-      <App />
+      <StyleProvider layer>
+        <App />
+      </StyleProvider>
     </ConfigProvider>
   )
 }
@@ -48,9 +50,7 @@ createRoot(document.getElementById("root")!).render(
   <ErrorBoundary fallbackRender={ErrorFallback}>
     <StrictMode>
       <Provider>
-        <StyleProvider layer>
-          <ThemeSwitch />
-        </StyleProvider>
+        <ThemeSwitch />
       </Provider>
     </StrictMode>
   </ErrorBoundary>,

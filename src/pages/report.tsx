@@ -16,11 +16,9 @@ import { Document, Page, pdfjs } from "react-pdf"
 import { PrintPreview } from "@/features/report/print-preview"
 import "react-pdf/dist/Page/AnnotationLayer.css"
 import "react-pdf/dist/Page/TextLayer.css"
+import pdfWorker from "pdfjs-dist/build/pdf.worker.min.mjs?url"
 
-pdfjs.GlobalWorkerOptions.workerSrc = new URL(
-  "pdfjs-dist/build/pdf.worker.min.mjs",
-  import.meta.url,
-).toString()
+pdfjs.GlobalWorkerOptions.workerSrc = pdfWorker
 
 export const PreviewReport: FC<{}> = () => {
   const contentRef = useRef<HTMLDivElement>(null)
